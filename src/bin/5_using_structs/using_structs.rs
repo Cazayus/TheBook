@@ -1,10 +1,10 @@
-pub(crate) struct User {
-    pub(crate) _active: bool,
-    pub(crate) _username: String,
-    pub(crate) email: String,
-    pub(crate) _sign_in_count: u64,
+pub struct User {
+    pub _active: bool,
+    pub _username: String,
+    pub email: String,
+    pub _sign_in_count: u64,
 }
-pub(crate) fn main() {
+pub fn main() {
     let mut user1 = User {
         email: String::from("someone@example.com"),
         _username: String::from("someusername123"),
