@@ -32,6 +32,11 @@ fn main() {
         rectangle,
         area_struct(&rectangle)
     );
+    println!(
+        "The area of the rectangle {:#?} is {} square pixels.",
+        rectangle,
+        area_struct(&rectangle)
+    );
     dbg!(rectangle.area());
     let rect1 = Rectangle {
         width: 30,
@@ -64,17 +69,17 @@ impl Rectangle {
         self.width * self.height
     }
 
-    fn can_hold(&self, p0: &Rectangle) -> bool {
-        p0.width < self.width && p0.height < self.height
-    }
-}
-
-impl Rectangle {
     fn square(size: u32) -> Rectangle {
         Rectangle {
             width: size,
             height: size,
         }
+    }
+}
+
+impl Rectangle {
+    fn can_hold(&self, p0: &Rectangle) -> bool {
+        p0.width < self.width && p0.height < self.height
     }
 }
 
