@@ -4,11 +4,11 @@ use std::io::{self, ErrorKind, Read};
 const PATH: &str = "target/hello.txt";
 
 fn main() {
-    let v = vec![1, 2, 3];
+    let _v = vec![1, 2, 3];
     // v[99];
     let f: Result<File, std::io::Error> = File::open(PATH);
 
-    let f = match f {
+    let _f = match f {
         Ok(file) => file,
         Err(error) => match error.kind() {
             ErrorKind::NotFound => match File::create(PATH) {
@@ -21,7 +21,7 @@ fn main() {
         },
     };
 
-    let f = File::open(PATH).unwrap_or_else(|error| {
+    let _f = File::open(PATH).unwrap_or_else(|error| {
         if error.kind() == ErrorKind::NotFound {
             File::create(PATH).unwrap_or_else(|error| {
                 panic!("Problem creating the file: {:?}", error);
@@ -31,8 +31,8 @@ fn main() {
         }
     });
 
-    let f = File::open(PATH).unwrap();
-    let f = File::open(PATH).expect("Failed to open hello.txt");
+    let _f = File::open(PATH).unwrap();
+    let _f = File::open(PATH).expect("Failed to open hello.txt");
     // let f = File::open("hello.txt")?;
 }
 
@@ -42,7 +42,7 @@ fn main() {
 //    Ok(())
 //}
 
-fn read_username_from_file() -> Result<String, io::Error> {
+fn _read_username_from_file() -> Result<String, io::Error> {
     let f = File::open(PATH);
 
     let mut f = match f {
@@ -57,21 +57,21 @@ fn read_username_from_file() -> Result<String, io::Error> {
         Err(e) => Err(e),
     }
 }
-fn read_username_from_file_shorter() -> Result<String, io::Error> {
+fn _read_username_from_file_shorter() -> Result<String, io::Error> {
     let mut f = File::open(PATH)?;
     let mut s = String::new();
     f.read_to_string(&mut s)?;
     Ok(s)
 }
 
-fn read_username_from_file_even_shorter() -> Result<String, io::Error> {
+fn _read_username_from_file_even_shorter() -> Result<String, io::Error> {
     let mut s = String::new();
 
     File::open(PATH)?.read_to_string(&mut s)?;
 
     Ok(s)
 }
-fn read_username_from_file_shortest() -> Result<String, io::Error> {
+fn _read_username_from_file_shortest() -> Result<String, io::Error> {
     fs::read_to_string(PATH)
 }
 

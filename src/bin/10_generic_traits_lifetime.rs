@@ -10,8 +10,8 @@ fn main() {
 
     let result = largest(&char_list);
     println!("The largest char is {}", result);
-    let integer = Point { x: 5, y: 10 };
-    let float = Point { x: 1.0, y: 4.0 };
+    let _integer = Point { _x: 5, _y: 10 };
+    let _float = Point { _x: 1.0, _y: 4.0 };
     let tweet = Tweet {
         username: String::from("horse_ebooks"),
         content: String::from("of course, as you probably already know, people"),
@@ -50,10 +50,10 @@ fn main() {
     //     result = longest(string1.as_str(), string2.as_str());
     // }
     // println!("The longest string is {}", result);
-    let s: &'static str = "I have a static lifetime.";
+    let _s: &'static str = "I have a static lifetime.";
 }
 
-fn longest_with_an_announcement<'a, T>(x: &'a str, y: &'a str, ann: T) -> &'a str
+fn _longest_with_an_announcement<'a, T>(x: &'a str, y: &'a str, ann: T) -> &'a str
 where
     T: Display,
 {
@@ -65,11 +65,11 @@ where
     }
 }
 
-struct ImportantExcerpt<'a> {
+struct _ImportantExcerpt<'a> {
     part: &'a str,
 }
 
-fn test() {
+fn _test() {
     // does not compile, i can't outlive what it refers because of the annotation we used
     // let i;
     //{
@@ -90,20 +90,20 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
     }
 }
 
-pub fn notify(item: &impl Summary) {}
-pub fn notify_with_traits_bound<T: Summary>(item: &T) {}
-pub fn notify_with_multiple_traits(item1: &impl Summary, item2: &impl Summary) {}
-pub fn notify_with_factorisation<T: Summary>(item1: &T, item2: &T) {}
-pub fn notify_combined(item: &(impl Summary + Display)) {}
-pub fn notify_combined_traits_bound<T: Summary + Display>(item: &T) {}
-fn some_function_with_traits_bounds<T, U>(t: &T, u: &U) -> i32
+pub fn notify(_item: &impl Summary) {}
+pub fn notify_with_traits_bound<T: Summary>(_item: &T) {}
+pub fn notify_with_multiple_traits(_item1: &impl Summary, _item2: &impl Summary) {}
+pub fn notify_with_factorisation<T: Summary>(_item1: &T, _item2: &T) {}
+pub fn notify_combined(_item: &(impl Summary + Display)) {}
+pub fn notify_combined_traits_bound<T: Summary + Display>(_item: &T) {}
+fn _some_function_with_traits_bounds<T, U>(_t: &T, _u: &U) -> i32
 where
     T: Display + Clone,
     U: Clone + Debug,
 {
     todo!()
 }
-fn returns_summarizable() -> impl Summary {
+fn _returns_summarizable() -> impl Summary {
     Tweet {
         username: String::from("horse_ebooks"),
         content: String::from("of course, as you probably already know, people"),
@@ -135,19 +135,19 @@ fn returns_summarizable() -> impl Summary {
     // }
 }
 
-struct Pair<T> {
+struct _Pair<T> {
     x: T,
     y: T,
 }
 
-impl<T> Pair<T> {
-    fn new(x: T, y: T) -> Self {
+impl<T> _Pair<T> {
+    fn _new(x: T, y: T) -> Self {
         Self { x, y }
     }
 }
 
-impl<T: Display + PartialOrd> Pair<T> {
-    fn cmp_display(&self) {
+impl<T: Display + PartialOrd> _Pair<T> {
+    fn _cmp_display(&self) {
         if self.x >= self.y {
             println!("The largest member is x = {}", self.x);
         } else {
@@ -207,35 +207,35 @@ pub trait SummaryWithDefault {
     }
 }
 
-enum Result<T, E> {
+enum _Result<T, E> {
     Ok(T),
     Err(E),
 }
 
 struct Point<T> {
-    x: T,
-    y: T,
+    _x: T,
+    _y: T,
 }
 
 impl<T> Point<T> {
-    fn x(&self) -> &T {
-        &self.x
+    fn _x(&self) -> &T {
+        &self._x
     }
 }
 impl Point<f32> {
-    fn distance_from_origin(&self) -> f32 {
-        (self.x.powi(2) + self.y.powi(2)).sqrt()
+    fn _distance_from_origin(&self) -> f32 {
+        (self._x.powi(2) + self._y.powi(2)).sqrt()
     }
 }
 
-struct MixedPoint<T, U> {
+struct _MixedPoint<T, U> {
     x: T,
     y: U,
 }
 
-impl<T, U> MixedPoint<T, U> {
-    fn mixup<V, W>(self, other: MixedPoint<V, W>) -> MixedPoint<T, W> {
-        MixedPoint {
+impl<T, U> _MixedPoint<T, U> {
+    fn _mixup<V, W>(self, other: _MixedPoint<V, W>) -> _MixedPoint<T, W> {
+        _MixedPoint {
             x: self.x,
             y: other.y,
         }
@@ -254,7 +254,7 @@ fn largest<T: PartialOrd + Copy>(list: &[T]) -> T {
     largest
 }
 
-fn largest_with_fix<T: PartialOrd>(list: &[T]) -> &T {
+fn _largest_with_fix<T: PartialOrd>(list: &[T]) -> &T {
     let mut largest = &list[0];
 
     for item in list {
@@ -266,7 +266,7 @@ fn largest_with_fix<T: PartialOrd>(list: &[T]) -> &T {
     largest
 }
 
-fn largest_i32(list: &[i32]) -> i32 {
+fn _largest_i32(list: &[i32]) -> i32 {
     let mut largest = list[0];
 
     for &item in list {
@@ -278,7 +278,7 @@ fn largest_i32(list: &[i32]) -> i32 {
     largest
 }
 
-fn largest_char(list: &[char]) -> char {
+fn _largest_char(list: &[char]) -> char {
     let mut largest = list[0];
 
     for &item in list {

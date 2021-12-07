@@ -1,6 +1,6 @@
 fn main() {
-    let v: Vec<i32> = Vec::new();
-    let v = vec![1, 2, 3];
+    let _v: Vec<i32> = Vec::new();
+    let _v = vec![1, 2, 3];
     let mut v = Vec::new();
 
     v.push(5);
@@ -34,31 +34,31 @@ fn main() {
         Text(String),
     }
 
-    let row = vec![
+    let _row = vec![
         SpreadsheetCell::Int(3),
         SpreadsheetCell::Text(String::from("blue")),
         SpreadsheetCell::Float(10.12),
     ];
 
-    let mut s = String::new();
+    let _s = String::new();
     let data = "initial contents";
 
-    let s = data.to_string();
+    let _s = data.to_string();
 
     // the method also works on a literal directly:
-    let s = "initial contents".to_string();
-    let s = String::from("initial contents");
-    let hello = String::from("السلام عليكم");
-    let hello = String::from("Dobrý den");
-    let hello = String::from("Hello");
-    let hello = String::from("שָׁלוֹם");
-    let hello = String::from("नमस्ते");
-    let hello = String::from("こんにちは");
-    let hello = String::from("안녕하세요");
-    let hello = String::from("你好");
-    let hello = String::from("Olá");
-    let hello = String::from("Здравствуйте");
-    let hello = String::from("Hola");
+    let _s = "initial contents".to_string();
+    let _s = String::from("initial contents");
+    let _hello = String::from("السلام عليكم");
+    let _hello = String::from("Dobrý den");
+    let _hello = String::from("Hello");
+    let _hello = String::from("שָׁלוֹם");
+    let _hello = String::from("नमस्ते");
+    let _hello = String::from("こんにちは");
+    let _hello = String::from("안녕하세요");
+    let _hello = String::from("你好");
+    let _hello = String::from("Olá");
+    let _hello = String::from("Здравствуйте");
+    let _hello = String::from("Hola");
     let mut s = String::from("foo");
     s.push_str("bar");
     let mut s1 = String::from("foo");
@@ -69,12 +69,12 @@ fn main() {
     s.push('l');
     let s1 = String::from("Hello, ");
     let s2 = String::from("world!");
-    let s3 = s1 + &s2; // note s1 has been moved here and can no longer be used
+    let _s3 = s1 + &s2; // note s1 has been moved here and can no longer be used
     let s1 = String::from("tic");
     let s2 = String::from("tac");
     let s3 = String::from("toe");
 
-    let s = format!("{}-{}-{}", s1, s2, s3);
+    let _s = format!("{}-{}-{}", s1, s2, s3);
     use std::collections::HashMap;
 
     let mut scores = HashMap::new();
@@ -94,7 +94,7 @@ fn main() {
     // field_name and field_value are invalid at this point, try using them and
     // see what compiler error you get!
     let team_name = String::from("Blue");
-    let score = scores.get(&team_name);
+    let _score = scores.get(&team_name);
 
     for (key, value) in &scores {
         println!("{}: {}", key, value);

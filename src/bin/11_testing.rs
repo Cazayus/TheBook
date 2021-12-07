@@ -7,11 +7,11 @@ struct Rectangle {
 }
 
 impl Rectangle {
-    fn can_hold(&self, other: &Rectangle) -> bool {
+    fn _can_hold(&self, other: &Rectangle) -> bool {
         self.width > other.width && self.height > other.height
     }
 }
-fn add_two(a: i32) -> i32 {
+fn _add_two(a: i32) -> i32 {
     a + 2
 }
 pub fn greeting(name: &str) -> String {
@@ -34,8 +34,8 @@ mod tests {
 
     #[test]
     fn it_adds_two() {
-        assert_eq!(4, add_two(2));
-        assert_ne!(5, add_two(2));
+        assert_eq!(4, _add_two(2));
+        assert_ne!(5, _add_two(2));
     }
 
     #[test]
@@ -76,7 +76,7 @@ mod tests {
             height: 1,
         };
 
-        assert!(larger.can_hold(&smaller));
+        assert!(larger._can_hold(&smaller));
     }
 
     #[test]
@@ -90,6 +90,6 @@ mod tests {
             height: 1,
         };
 
-        assert!(!smaller.can_hold(&larger));
+        assert!(!smaller._can_hold(&larger));
     }
 }
