@@ -1,3 +1,4 @@
+#[allow(clippy::vec_init_then_push)]
 fn main() {
     let _v: Vec<i32> = Vec::new();
     let _v = vec![1, 2, 3];

@@ -42,7 +42,7 @@ pub fn main() {
 
 fn build_user(email: String, username: String) -> User {
     User {
-        email: email,
+        email,
         _username: username,
         _active: true,
         _sign_in_count: 1,

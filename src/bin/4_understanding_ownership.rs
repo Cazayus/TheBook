@@ -8,6 +8,7 @@ fn main() {
     slices();
 }
 
+#[allow(clippy::redundant_slicing)]
 fn slices() {
     let s = String::from("hello world");
 
@@ -50,7 +51,7 @@ fn first_word(s: &str) -> &str {
         }
     }
 
-    &s[..]
+    s
 }
 
 fn references() {
@@ -73,7 +74,7 @@ fn references() {
     println!("{}", r3);
 }
 
-fn calculate_length(s: &String) -> usize {
+fn calculate_length(s: &str) -> usize {
     // s is a reference to a String
     s.len()
 } // Here, s goes out of scope. But because it does not have ownership of what
@@ -95,6 +96,7 @@ fn with_return() {
 } // Here, s3 goes out of scope and is dropped. s2 was moved, so nothing
   // happens. s1 goes out of scope and is dropped.
 
+#[allow(clippy::let_and_return)]
 fn gives_ownership() -> String {
     // gives_ownership will move its
     // return value into the function

@@ -2,7 +2,7 @@ mod using_structs;
 
 fn main() {
     using_structs::main();
-    using_structs::User {
+    let _temp = using_structs::User {
         _active: false,
         _username: "".to_string(),
         email: "".to_string(),

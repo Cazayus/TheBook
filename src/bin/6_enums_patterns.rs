@@ -54,6 +54,7 @@ fn main() {
     }
 }
 
+#[allow(clippy::manual_map)]
 fn plus_one(x: Option<i32>) -> Option<i32> {
     match x {
         None => None,
@@ -95,8 +96,8 @@ impl Message {
 
 #[derive(Debug)]
 struct Rectangle {
-    width: u32,
-    height: u32,
+    _width: u32,
+    _height: u32,
 }
 
 #[derive(Debug)]
